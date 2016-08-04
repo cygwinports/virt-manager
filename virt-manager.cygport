@@ -1,0 +1,21 @@
+inherit python-distutils
+
+NAME="virt-manager"
+VERSION=1.4.0
+RELEASE=1
+CATEGORY="System"
+SUMMARY="GUI virtualization manager"
+DESCRIPTION="This application provides a graphical tool for managing virtual
+machines via the libvirt library.  The UI is primarily tested with KVM, but is
+intended to be reasonably portable to any virtualization backend libvirt
+supports."
+HOMEPAGE="http://virt-manager.org/"
+SRC_URI="http://virt-manager.org/download/sources/${NAME}/${NAME}-${VERSION}.tar.gz"
+
+ARCH=noarch
+
+src_install() {
+	cd ${B}
+	python_distutils_install --no-update-icon-cache --no-compile-schemas
+	python_compile /usr/share/${NAME}
+}
