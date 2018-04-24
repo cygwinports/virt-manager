@@ -1,0 +1,17 @@
+--- origsrc/virt-manager-1.5.1/virtManager/systray.py	2018-02-28 12:34:18.000000000 -0600
++++ src/virt-manager-1.5.1/virtManager/systray.py	2018-04-23 21:40:17.012208800 -0500
+@@ -30,9 +30,12 @@ from .error import vmmErrorDialog
+ try:
+     # pylint: disable=no-name-in-module
+     # pylint: disable=wrong-import-order
+-    from gi.repository import AppIndicator3
++    from gi.repository import AyatanaAppIndicator3 as AppIndicator3
+ except Exception:
+-    AppIndicator3 = None
++    try:
++        from gi.repository import AppIndicator3
++    except Exception:
++        AppIndicator3 = None
+ 
+ 
+ class vmmSystray(vmmGObject):

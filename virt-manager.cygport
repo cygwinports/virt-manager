@@ -2,7 +2,7 @@ inherit python2-distutils
 
 NAME="virt-manager"
 VERSION=1.5.1
-RELEASE=1
+RELEASE=2
 CATEGORY="System"
 SUMMARY="Virtualization manager"
 DESCRIPTION="This application provides a graphical tool for managing virtual
@@ -11,12 +11,13 @@ intended to be reasonably portable to any virtualization backend libvirt
 supports."
 HOMEPAGE="http://virt-manager.org/"
 SRC_URI="http://virt-manager.org/download/sources/${NAME}/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="1.5.1-ayatana.patch"
 
 ARCH=noarch
 
 DIFF_EXCLUDES="gschemas.compiled"
 
-REQUIRES="girepository-AppIndicator3_0.1 girepository-Gtk3.0 girepository-GtkVnc2.0 girepository-LibvirtGLib1.0 girepository-SpiceClientGtk3.0 girepository-Libosinfo1.0 girepository-Vte2.91"
+REQUIRES="girepository-AyatanaAppIndicator3_0.1 girepository-Gtk3.0 girepository-GtkVnc2.0 girepository-LibvirtGLib1.0 girepository-SpiceClientGtk3.0 girepository-Libosinfo1.0 girepository-Vte2.91"
 
 src_install() {
 	cd ${B}
